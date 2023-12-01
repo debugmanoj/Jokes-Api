@@ -1,0 +1,13 @@
+*{
+    margin-top: 20px;
+}
+body{
+    
+    background-repeat: no-repeat;
+    text-align: center;
+}
+.card{
+    padding: 35px;
+    margin-bottom: 50px;
+    box-shadow: 3px 3px rgb(139, 146, 148), -1em 0 .4em rgb(119, 119, 118);
+}
