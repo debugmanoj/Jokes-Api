@@ -1,4 +1,11 @@
-let card=document.getElementById("jokes")
+let div=document.createElement("div")
+div.setAttribute("class","container")
+document.body.append(div);
+//row div
+let row=document.createElement("div");
+row.setAttribute("class","row text-center");
+div.append(row);
+
 const collect= ( async (event)=>{
     let checkboxes={}
      event.preventDefault();
@@ -18,18 +25,31 @@ const collect= ( async (event)=>{
     const jokes=await result.json();
     
 jokes.jokes.forEach(element => {
-    let div=document.createElement("div")
-    div.classList.add('col-lg-4');
-    div.innerHTML+=`<div class="card" style="width: 18rem">
-    <h5 class="card-header">${element.category}</h5>
+    let newDiv = document.createElement('div');
+      newDiv.classList.add('col-lg-4');
+      newDiv.innerHTML = `
+        <div class="card" style="width: 18rem">
+          <h5 class="card-header"> ${element.category}</h5>
+          
+          <div class="card-body">
+            <p class="card-text"> ${element.setup}</p>
+            <p class="card-text">😂 ${element.delivery}</p>
+          </div>
+        </div>
+      `;
+      row.appendChild(newDiv);
+//     let div=document.createElement("div")
+//     div.classList.add('col-lg-4');
+//     div.innerHTML+=`<div class="card" style="width: 18rem">
+//     <h5 class="card-header">${element.category}</h5>
     
-    <div class="card-body">
-      <p class="card-text">amiiboSeries: ${element.setup}</p>
-      <p class="card-text">GameSeries: ${element.delivery}</p>
-    </div>
-  </div>
-    `
+//     <div class="card-body">
+//       <p class="card-text">amiiboSeries: ${element.setup}</p>
+//       <p class="card-text">GameSeries: ${element.delivery}</p>
+//     </div>
+//   </div>
+//     `
 
-    card.appendChild(div)
+//     card.appendChild(div)
 });
 })
